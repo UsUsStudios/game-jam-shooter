@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxva8ewx5ehdf"]
+
+[ext_resource type="PackedScene" uid="uid://c0yfuu3k1fjy1" path="res://scenes/player.tscn" id="1_7o5o8"]
+[ext_resource type="PackedScene" uid="uid://cpajtx4jwrs8h" path="res://scenes/all_enemies.tscn" id="2_4kgir"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ggac4"]
+normal = Vector2(0.999958, -0.00920206)
+distance = -553.412
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h14xv"]
+distance = -349.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uxr7k"]
+normal = Vector2(-0.999959, 0.00900864)
+distance = -569.193
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5tr5m"]
+normal = Vector2(0.0065788, 0.999978)
+distance = -302.875
+
+[node name="Main" type="Node2D"]
+position = Vector2(536, 288)
+
+[node name="Player" parent="." instance=ExtResource("1_7o5o8")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_ggac4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_h14xv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_uxr7k")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_5tr5m")
+
+[node name="All Enemies" parent="." instance=ExtResource("2_4kgir")]
+position = Vector2(0, 1)
